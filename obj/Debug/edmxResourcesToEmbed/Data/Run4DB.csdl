@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ksalomon_listModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ksalomon_listEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Errors" EntityType="ksalomon_listModel.Error" />
+    <EntitySet Name="Items" EntityType="ksalomon_listModel.Item" />
+    <EntitySet Name="Members" EntityType="ksalomon_listModel.Member" />
+    <EntitySet Name="Orders" EntityType="ksalomon_listModel.Order" />
+  </EntityContainer>
+  <EntityType Name="Error">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ErrorDescription" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ErrorCategory" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ItemQuantity" Type="Int32" />
+    <Property Name="ItemSize" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ItemComments" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="ItemCategory" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Address2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Zip" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PhoneMobile" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PhoneHome" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PhoneBusiness" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="OptIn" Type="Boolean" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderRaw" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="OrderTitle" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="OrderDescription" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="DateDelivery" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

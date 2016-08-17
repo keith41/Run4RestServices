@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ksalomon_listModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ksalomon_listModelStoreContainer">
+          <EntitySet Name="Error" EntityType="ksalomon_listModel.Store.Error" store:Type="Tables" Schema="ksalo_list" />
+          <EntitySet Name="Item" EntityType="ksalomon_listModel.Store.Item" store:Type="Tables" Schema="ksalo_list" />
+          <EntitySet Name="Member" EntityType="ksalomon_listModel.Store.Member" store:Type="Tables" Schema="ksalo_list" />
+          <EntitySet Name="Order" EntityType="ksalomon_listModel.Store.Order" store:Type="Tables" Schema="ksalo_list" />
+        </EntityContainer>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorDescription" Type="varchar(max)" />
+          <Property Name="ErrorCategory" Type="varchar" MaxLength="200" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="varchar(max)" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ItemQuantity" Type="int" />
+          <Property Name="ItemSize" Type="varchar" MaxLength="100" />
+          <Property Name="ItemComments" Type="varchar" MaxLength="1000" />
+          <Property Name="ItemCategory" Type="varchar" MaxLength="100" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="Address2" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="Zip" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneMobile" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneHome" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneBusiness" Type="varchar" MaxLength="20" />
+          <Property Name="OptIn" Type="bit" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderRaw" Type="varchar(max)" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="OrderTitle" Type="varchar" MaxLength="255" />
+          <Property Name="OrderDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="DateDelivery" Type="datetime" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ksalomon_listModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ksalomon_listEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Errors" EntityType="ksalomon_listModel.Error" />
+          <EntitySet Name="Items" EntityType="ksalomon_listModel.Item" />
+          <EntitySet Name="Members" EntityType="ksalomon_listModel.Member" />
+          <EntitySet Name="Orders" EntityType="ksalomon_listModel.Order" />
+        </EntityContainer>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorDescription" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ErrorCategory" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ItemQuantity" Type="Int32" />
+          <Property Name="ItemSize" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ItemComments" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ItemCategory" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneMobile" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneHome" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneBusiness" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="OptIn" Type="Boolean" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderRaw" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="OrderTitle" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="OrderDescription" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="DateDelivery" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ksalomon_listModelStoreContainer" CdmEntityContainer="ksalomon_listEntities">
+          <EntitySetMapping Name="Errors">
+            <EntityTypeMapping TypeName="ksalomon_listModel.Error">
+              <MappingFragment StoreEntitySet="Error">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ErrorDescription" ColumnName="ErrorDescription" />
+                <ScalarProperty Name="ErrorCategory" ColumnName="ErrorCategory" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="ksalomon_listModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+                <ScalarProperty Name="ItemSize" ColumnName="ItemSize" />
+                <ScalarProperty Name="ItemComments" ColumnName="ItemComments" />
+                <ScalarProperty Name="ItemCategory" ColumnName="ItemCategory" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="ksalomon_listModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
+                <ScalarProperty Name="PhoneHome" ColumnName="PhoneHome" />
+                <ScalarProperty Name="PhoneBusiness" ColumnName="PhoneBusiness" />
+                <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ksalomon_listModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OrderRaw" ColumnName="OrderRaw" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
+                <ScalarProperty Name="OrderDescription" ColumnName="OrderDescription" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateDelivery" ColumnName="DateDelivery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

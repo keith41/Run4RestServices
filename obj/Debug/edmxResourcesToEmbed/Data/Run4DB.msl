@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ksalomon_listModelStoreContainer" CdmEntityContainer="ksalomon_listEntities">
+    <EntitySetMapping Name="Errors">
+      <EntityTypeMapping TypeName="ksalomon_listModel.Error">
+        <MappingFragment StoreEntitySet="Error">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ErrorDescription" ColumnName="ErrorDescription" />
+          <ScalarProperty Name="ErrorCategory" ColumnName="ErrorCategory" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="ksalomon_listModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+          <ScalarProperty Name="ItemSize" ColumnName="ItemSize" />
+          <ScalarProperty Name="ItemComments" ColumnName="ItemComments" />
+          <ScalarProperty Name="ItemCategory" ColumnName="ItemCategory" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="ksalomon_listModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
+          <ScalarProperty Name="PhoneHome" ColumnName="PhoneHome" />
+          <ScalarProperty Name="PhoneBusiness" ColumnName="PhoneBusiness" />
+          <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ksalomon_listModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="OrderRaw" ColumnName="OrderRaw" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
+          <ScalarProperty Name="OrderDescription" ColumnName="OrderDescription" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="DateDelivery" ColumnName="DateDelivery" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

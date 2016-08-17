@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ksalomon_listModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ksalomon_listModelStoreContainer">
+    <EntitySet Name="Error" EntityType="ksalomon_listModel.Store.Error" store:Type="Tables" Schema="ksalo_list" />
+    <EntitySet Name="Item" EntityType="ksalomon_listModel.Store.Item" store:Type="Tables" Schema="ksalo_list" />
+    <EntitySet Name="Member" EntityType="ksalomon_listModel.Store.Member" store:Type="Tables" Schema="ksalo_list" />
+    <EntitySet Name="Order" EntityType="ksalomon_listModel.Store.Order" store:Type="Tables" Schema="ksalo_list" />
+  </EntityContainer>
+  <EntityType Name="Error">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ErrorDescription" Type="varchar(max)" />
+    <Property Name="ErrorCategory" Type="varchar" MaxLength="200" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="varchar(max)" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ItemQuantity" Type="int" />
+    <Property Name="ItemSize" Type="varchar" MaxLength="100" />
+    <Property Name="ItemComments" Type="varchar" MaxLength="1000" />
+    <Property Name="ItemCategory" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="255" />
+    <Property Name="Address2" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="255" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="Zip" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneMobile" Type="varchar" MaxLength="20" />
+    <Property Name="PhoneHome" Type="varchar" MaxLength="20" />
+    <Property Name="PhoneBusiness" Type="varchar" MaxLength="20" />
+    <Property Name="OptIn" Type="bit" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderRaw" Type="varchar(max)" />
+    <Property Name="MemberID" Type="int" Nullable="false" />
+    <Property Name="OrderTitle" Type="varchar" MaxLength="255" />
+    <Property Name="OrderDescription" Type="varchar" MaxLength="1000" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="DateDelivery" Type="datetime" />
+  </EntityType>
+</Schema>
