@@ -12,3 +12,4 @@ c:\users\kfsvlsi\documents\visual studio 2012\Projects\Run4RestServices\Run4Rest
 c:\users\kfsvlsi\documents\visual studio 2012\Projects\Run4RestServices\Run4RestServices\obj\Debug\Run4RestServices.pdb
 c:\users\kfsvlsi\documents\visual studio 2012\Projects\Run4RestServices\Run4RestServices\bin\EntityFramework.dll
 c:\users\kfsvlsi\documents\visual studio 2012\Projects\Run4RestServices\Run4RestServices\bin\EntityFramework.xml
+C:\Users\kfsvlsi\documents\visual studio 2012\Projects\Run4RestServices\Run4RestServices\obj\Debug\Run4RestServices.csprojResolveAssemblyReference.cache

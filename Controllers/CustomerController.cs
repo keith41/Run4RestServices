@@ -78,7 +78,37 @@ namespace Run4RestServices.Controllers
             {
                 using (ksalomon_listEntities entities = new ksalomon_listEntities())
                 {
+                    // Create a new Order object.
+                    Member ord = new Member
+                    {
+                        OrderID = 0,
+                        FirstName = member.FirstName,
+                        LastName = member.LastName,
+                        Address = member.Address,
+                        Address2 = member.Address2,
+                        City = member.City,
+                        State = member.State,
+                        Zip = member.Zip,
+                        Email = member.Email,
+                        Password = member.Password,
+                        PhoneMobile = member.PhoneMobile,
+                        DateCreated = DateTime.Now,
+                        DateUpdated = DateTime.Now
+                    };
 
+                    // Add the new object to the Members collection.
+                    entities.Members.Add(ord);
+
+                    // Save the change to the database.
+                    try
+                    {
+                        entities.SaveChanges();                                                
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("", "Error: " + e.ToString());
+                        return new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+                    }
                 }
 
                 return new HttpResponseMessage(HttpStatusCode.OK);
